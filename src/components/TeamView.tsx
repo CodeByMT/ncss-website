@@ -14,26 +14,24 @@ export default function TeamView({ team }: TeamViewProps) {
       m.role.toLowerCase().includes("advisor")
   );
 
-  // ✅ NEW: Unified Executive Committee with proper hierarchy
-  const executiveCommittee = team
-    .filter(
-      (m) =>
-        !m.role.toLowerCase().includes("faculty") &&
-        !m.role.toLowerCase().includes("advisor")
-    )
-    .sort((a, b) => {
-      const roleOrder: Record<string, number> = {
-        president: 1,
-        "vice president": 2,
-        "general secretary": 3,
-        treasurer: 4,
-      };
+  // Executive breakdown (NEW)
+  const presidents = team.filter(
+    (m) =>
+      m.role.toLowerCase().includes("president") &&
+      !m.role.toLowerCase().includes("vice")
+  );
 
-      return (
-        (roleOrder[a.role.toLowerCase()] || 999) -
-        (roleOrder[b.role.toLowerCase()] || 999)
-      );
-    });
+  const vicePresidents = team.filter((m) =>
+    m.role.toLowerCase().includes("vice president")
+  );
+
+  const generalSecretaries = team.filter((m) =>
+    m.role.toLowerCase().includes("general secretary")
+  );
+
+  const treasurers = team.filter((m) =>
+    m.role.toLowerCase().includes("treasurer")
+  );
 
   const renderMemberCard = (m: TeamMember) => (
     <div
@@ -108,21 +106,70 @@ export default function TeamView({ team }: TeamViewProps) {
         </section>
       )}
 
-      {/* Executive Committee (NEW SINGLE SECTION) */}
-      {executiveCommittee.length > 0 && (
+      {/* President */}
+      {presidents.length > 0 && (
         <section className="space-y-8">
           <div className="flex items-center gap-2 justify-center">
             <ShieldCheck className="w-5 h-5 text-[#1B2A4A]" />
             <h2 className="text-xl sm:text-2xl font-bold text-[#1B2A4A] font-display tracking-tight">
-              Executive Committee
+              President
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {executiveCommittee.map((m) => renderMemberCard(m))}
+          <div className="flex justify-center flex-wrap gap-8">
+            {presidents.map((m) => renderMemberCard(m))}
           </div>
         </section>
       )}
+
+      {/* Vice Presidents */}
+      {vicePresidents.length > 0 && (
+        <section className="space-y-8">
+          <div className="flex items-center gap-2 justify-center">
+            <Users className="w-5 h-5 text-[#1B2A4A]" />
+            <h2 className="text-xl sm:text-2xl font-bold text-[#1B2A4A] font-display tracking-tight">
+              Vice Presidents
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            {vicePresidents.map((m) => renderMemberCard(m))}
+          </div>
+        </section>
+      )}
+
+      {/* General Secretaries */}
+      {generalSecretaries.length > 0 && (
+        <section className="space-y-8">
+          <div className="flex items-center gap-2 justify-center">
+            <Heart className="w-5 h-5 text-[#1B2A4A]" />
+            <h2 className="text-xl sm:text-2xl font-bold text-[#1B2A4A] font-display tracking-tight">
+              General Secretaries
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {generalSecretaries.map((m) => renderMemberCard(m))}
+          </div>
+        </section>
+      )}
+
+      {/* Treasurers */}
+      {treasurers.length > 0 && (
+        <section className="space-y-8">
+          <div className="flex items-center gap-2 justify-center">
+            <Heart className="w-5 h-5 text-[#1B2A4A]" />
+            <h2 className="text-xl sm:text-2xl font-bold text-[#1B2A4A] font-display tracking-tight">
+              Treasurers
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {treasurers.map((m) => renderMemberCard(m))}
+          </div>
+        </section>
+      )}
+
     </div>
   );
 }
