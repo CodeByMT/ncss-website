@@ -249,7 +249,6 @@ export default function App() {
       <Navbar 
         currentTab={currentTab} 
         setCurrentTab={setCurrentTab} 
-        backendProvider={backendStatus.provider} 
       />
 
       {/* 3. Main Dynamic Portal space */}
