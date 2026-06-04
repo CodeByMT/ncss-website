@@ -1,0 +1,6 @@
+{
+  "name": "NIT Community Service Society",
+  "description": "The official website and administration panel for NIT Community Service Society (NCSS). Let student-led community service thrive.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
