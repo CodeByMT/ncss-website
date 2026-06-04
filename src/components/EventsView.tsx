@@ -150,11 +150,11 @@ export default function EventsView({ events }: EventsViewProps) {
                   <div className="pt-4 border-t border-[#D4C4A0]/65 flex items-center justify-between text-xs text-[#1B2A4A]/70">
                     <div className="flex items-center gap-1.5">
                       <MapPin className="w-3.5 h-3.5 text-[#1B2A4A]" />
-                      <span className="font-bold text-[#1B2A4A]/80">Lahore Circle Suburbs</span>
+                      <span className="font-bold text-[#1B2A4A]/80">
+  {evt.location || "NIT Lahore"}
+</span>
                     </div>
-                    <span className="font-mono text-[9px] text-[#1B2A4A]/80 bg-[#F5EDD8] px-2 py-1 rounded border border-[#D4C4A0]">
-                      REF: {evt.id.replace("event-", "NCSS-")}
-                    </span>
+                    
                   </div>
                 </div>
               </div>
