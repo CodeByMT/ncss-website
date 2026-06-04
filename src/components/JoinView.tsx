@@ -14,13 +14,9 @@ export default function JoinView() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const departments = [
-    "Computer Science & Engineering",
-    "Electrical Engineering",
-    "Mechanical Engineering",
-    "Chemical Engineering",
-    "Civil Engineering",
-    "Metallurgical & Materials Engineering",
-    "Basic Sciences & Humanities"
+    "School of Data Science & Information Technology",
+    "School of Management Sciences",
+    "School of Social Sciences",
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
