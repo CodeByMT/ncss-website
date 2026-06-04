@@ -57,11 +57,11 @@ export default function Footer({ setCurrentTab }: FooterProps) {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-2.5">
                 <Mail className="w-4.5 h-4.5 text-[#1B2A4A] mt-0.5 shrink-0" />
-                <a href="mailto:ncss@nit.edu" className="hover:text-[#1B2A4A] font-semibold transition-colors">ncss@nit.edu</a>
+                <a href="mailto:ncss.nit@gmail.com" className="hover:text-[#1B2A4A] font-semibold transition-colors">ncss.nit@gmail.com</a>
               </li>
               <li className="flex items-start gap-2.5">
                 <Instagram className="w-4.5 h-4.5 text-[#1B2A4A] mt-0.5 shrink-0" />
-                <a href="https://instagram.com/ncss.nit" target="_blank" rel="noopener noreferrer" className="hover:text-[#1B2A4A] font-semibold transition-colors">@ncss.nit</a>
+                <a href="https://instagram.com/communityservice.nit" target="_blank" rel="noopener noreferrer" className="hover:text-[#1B2A4A] font-semibold transition-colors">@communityservice.nit</a>
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4.5 h-4.5 text-[#1B2A4A] mt-0.5 shrink-0" />
